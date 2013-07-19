@@ -10,7 +10,7 @@ class phpmyadmin {
     mode    => 644,
     replace => true,
     ensure  => present,
-    source  => '/vagrant/puppet/files/phpMyAdmin.conf',
+    source  => '/vagrant/puppet/modules/phpmyadmin/files/phpMyAdmin.conf',
     require => Package["httpd"],
     notify  => Service["httpd"],
   }
@@ -21,7 +21,7 @@ class phpmyadmin {
     mode    => 644,
     replace => true,
     ensure  => present,
-    source  => '/vagrant/puppet/files/phpmy_admin_config.inc.php',
+    source  => '/vagrant/puppet/modules/phpmyadmin/files/phpmy_admin_config.inc.php',
     require => Package['phpMyAdmin']
   }
 

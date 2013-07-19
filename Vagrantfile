@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "/Volumes/TAPETUM_A/Sites/fc.fatcatchdesign.dev/htdocs", "/var/www/htdocs"
+  config.vm.synced_folder "~/Sites/fc.fatcatchdesign.dev/htdocs", "/var/www/htdocs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
