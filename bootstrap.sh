@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This bootstraps Puppet on CentOS 6.x
-# It has been tested on CentOS 6.3 64bit
+# It has been tested on CentOS 6.4 64bit
 
 set -e
 
@@ -27,3 +27,9 @@ echo "Installing puppet"
 yum install -y puppet > /dev/null
 
 echo "Puppet installed!"
+
+# name resolution
+# ip=$(ifconfig eth0 | perl -ne 'if (/inet addr:(?<ip>.+?)\s+/){print $+{ip}}')
+# if [[ $(grep -c $(hostname) /etc/hosts) -eq 0 ]]; then
+#     echo "${ip} $(hostname) puppet" >> /etc/hosts
+# fi

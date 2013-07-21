@@ -11,8 +11,8 @@ class phpmyadmin {
     replace => true,
     ensure  => present,
     source  => '/vagrant/puppet/modules/phpmyadmin/files/phpMyAdmin.conf',
-    require => Package["httpd"],
-    notify  => Service["httpd"],
+    require => Package['httpd'],
+    notify  => Service['httpd'],
   }
 
   file { '/etc/phpMyAdmin/config.inc.php':
@@ -22,7 +22,7 @@ class phpmyadmin {
     replace => true,
     ensure  => present,
     source  => '/vagrant/puppet/modules/phpmyadmin/files/phpmy_admin_config.inc.php',
-    require => Package['phpMyAdmin']
+    require => Package['phpMyAdmin'],
   }
 
 }
