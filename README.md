@@ -1,5 +1,5 @@
 #Vagrant-LAMP
-Vagrant configuration files for LAMP VM using a CentOS 64bit box (attempting to approximate Bluehost environment)
+Vagrant configuration files for LAMP VM using a CentOS 64bit box (attempting to approximate Bluehost's server environment)
 
 ##Download Modules
 Download the following to `puppet/modules` directory:
