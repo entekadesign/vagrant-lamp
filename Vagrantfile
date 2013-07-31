@@ -30,12 +30,6 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network :public_network
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  config.vm.synced_folder "~/Sites/fc.fatcatchdesign.dev/htdocs", "/var/www/htdocs"
-
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -47,11 +41,17 @@ Vagrant.configure("2") do |config|
   #   # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "512"]
     # vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    # vb.customize ["modifyvm", :id, "--name", "my-first-box"]
+    vb.customize ["modifyvm", :id, "--name", "fc-host"]
   end
 
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  config.vm.synced_folder "~/Sites/fc.fatcatchdesign.dev/htdocs", "/var/www/htdocs" #, :id => "vagrant-www", :owner => "vagrant", :group => "apache", :extra => 'dmode=770,fmode=664'
+
   # Enable shell provisioning to bootstrap puppet
-  config.vm.provision :shell, :path => "bootstrap.sh" 
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.

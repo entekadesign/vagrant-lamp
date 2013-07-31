@@ -2,7 +2,7 @@
 # This bootstraps Puppet on CentOS 6.x
 # It has been tested on CentOS 6.4 64bit
 
-set -e
+
 
 REPO_URL="http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-7.noarch.rpm"
 
@@ -10,6 +10,16 @@ if [ "$EUID" -ne "0" ]; then
   echo "This script must be run as root." >&2
   exit 1
 fi
+
+# Setup shared folders
+SHARED_F="/var/www/htdocs"
+echo "Setting up shared folder ${SHARED_F}..."
+groupadd -f apache
+useradd -g apache -r apache
+mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g apache`,dmode=770,fmode=664 ${SHARED_F} ${SHARED_F}
+
+# exit on error
+set -e
 
 if which puppet > /dev/null 2>&1; then
   echo "Puppet is already installed."
@@ -33,3 +43,4 @@ echo "Puppet installed!"
 # if [[ $(grep -c $(hostname) /etc/hosts) -eq 0 ]]; then
 #     echo "${ip} $(hostname) puppet" >> /etc/hosts
 # fi
+

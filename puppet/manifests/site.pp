@@ -1,4 +1,6 @@
-node 'fc.fatcatchdesign.dev' {  
+node 'fc.fatcatchdesign.dev' {
+
+            # mysql
             class { 'mysql::server':
                     config_hash => { 'root_password' => 'tundra' },
             }
@@ -13,14 +15,14 @@ node 'fc.fatcatchdesign.dev' {
 
             apache::vhost { $::fqdn:
                     port => '80',
-                    docroot => '/var/www/htdocs',
-                    require => File['/var/www/htdocs'],
+                    docroot => "/var/www/htdocs",
+                    require => File["/var/www/htdocs"],
                     override => 'All', # to allow permalinks
                     priority      => '1',
             }
 
             # setting up the document root
-            file { ['/var/www/htdocs']:
+            file { ["/var/www/htdocs"]:
                     ensure => directory,
             }
 
