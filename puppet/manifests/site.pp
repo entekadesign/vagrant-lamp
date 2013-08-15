@@ -42,4 +42,7 @@ node 'fc.fatcatchdesign.dev' {
 
             # phpmyadmin from EPEL; no puppetlabs module available
             include phpmyadmin
+
+            # ensure proper name resolution
+            include resolv
 }

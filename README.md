@@ -55,6 +55,11 @@ Includes phpMyAdmin module, available here:
 
     http://localhost:8888/phpmyadmin
 
+###resolv.conf
+The default resolv.conf file can prevent proper name resolving. Change the search domain as appropriate:
+
+    /puppet/modules/resolv/files/resolv.conf
+
 ## FatCatch Design
 [FatCatch Design](https://www.fatcatchdesign.com/)
 
