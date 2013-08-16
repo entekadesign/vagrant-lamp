@@ -4,6 +4,9 @@ Configuration files for Vagrant + Puppet to create LAMP VM using a CentOS 64bit 
 ##Configure
 This configuration assumes you have installed Vagrant (`www.vagrantup.com`) and VirtualBox (`www.virtualbox.org`), and that you are using `~/Sites/fc.fatcatchdesign.dev/htdocs` for your shared dirctory path. To change the path, edit `vagrant-lamp/Vagrantfile`
 
+The default resolv.conf file can prevent proper name resolving. Change the search domain as appropriate:
+
+    vagrant-lamp/puppet/modules/resolv/files/resolv.conf
 
 ##Setup
 (1) From within `vagrant-lamp` directory:
@@ -55,10 +58,6 @@ Includes phpMyAdmin module, available here:
 
     http://localhost:8888/phpmyadmin
 
-###resolv.conf
-The default resolv.conf file can prevent proper name resolving. Change the search domain as appropriate:
-
-    vagrant-lamp/puppet/modules/resolv/files/resolv.conf
 
 ## FatCatch Design
 [FatCatch Design](https://www.fatcatchdesign.com/)
