@@ -40,8 +40,7 @@ Vagrant.configure("2") do |config|
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "512"]
-    # vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    vb.customize ["modifyvm", :id, "--name", "fc-host"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
   # Share an additional folder to the guest VM. The first argument is

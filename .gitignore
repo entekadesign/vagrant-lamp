@@ -3,4 +3,3 @@
 puppet/modules/*
 !puppet/modules/*.md
 !puppet/modules/phpmyadmin/
-!puppet/modules/resolv/
