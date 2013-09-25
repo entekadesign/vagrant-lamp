@@ -1,4 +1,4 @@
-node 'fc.fatcatchdesign.dev' {
+node default {
 
             # mysql
             class { 'mysql::server':

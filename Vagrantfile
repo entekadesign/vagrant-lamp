@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+myCustomHostname = "fc.fatcatchdesign.dev"
+mySyncedFolder = "~/Sites/#{myCustomHostname}/htdocs"
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -14,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
 
   # Custom hostname
-  config.vm.hostname = "fc.fatcatchdesign.dev"
+  config.vm.hostname = myCustomHostname
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -47,7 +50,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "~/Sites/fc.fatcatchdesign.dev/htdocs", "/var/www/htdocs" #, :id => "vagrant-www", :owner => "vagrant", :group => "apache", :extra => 'dmode=770,fmode=664'
+  config.vm.synced_folder mySyncedFolder, "/var/www/htdocs" #, :id => "vagrant-www", :owner => "vagrant", :group => "apache", :extra => 'dmode=770,fmode=664'
 
   # Enable shell provisioning to bootstrap puppet
   config.vm.provision :shell, :path => "bootstrap.sh"
