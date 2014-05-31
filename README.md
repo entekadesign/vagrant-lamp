@@ -26,6 +26,7 @@ Puppet expects the following modules in the `vagrant-lamp/puppet/modules` direct
   * ripienaar/concat
 * puppetlabs/mysql
 * puppetlabs/firewall
+* thias/php
 
 (3) From the VM command line:
 

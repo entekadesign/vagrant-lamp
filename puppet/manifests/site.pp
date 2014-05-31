@@ -9,6 +9,7 @@ node default {
 
             # configuring puppetlabs apache
             # consider example42 apache module that permits specification of version: https://github.com/example42/puppet-apache
+
             include apache
 
             include apache::mod::php
@@ -20,6 +21,10 @@ node default {
                     override => 'All', # to allow permalinks
                     priority      => '1',
             }
+
+            php::ini { '/etc/php.ini':
+              memory_limit   => '256M',
+            }            
 
             # setting up the document root
             file { ["/var/www/htdocs"]:
