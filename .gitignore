@@ -1,6 +1,5 @@
 .DS_Store
 .vagrant
-Vagrantfile
 puppet/modules/*
 !puppet/modules/*.md
 !puppet/modules/phpmyadmin/
